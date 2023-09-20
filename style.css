@@ -1,0 +1,29 @@
+div {
+    width: 28vw;
+    height: 28vh;
+}
+
+.jogo__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    height: 90vh;
+}
+
+.r {
+    border-right: 1px solid black;
+}
+
+.b {
+    border-bottom: 1px solid black;
+}
+
+.j1 {
+    background-color: brown;
+}
+
+.j2 {
+    background-color: burlywood;
+}

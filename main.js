@@ -1,37 +1,56 @@
 const posicoes = document.querySelectorAll(".p")
 let vez = 1
 let tentativas = 1
-let reservado1 = []
-let reservado2 = []
 
 posicoes.forEach(element => {
     element.addEventListener("click", e => {
         if(element.value === "j1" || element.value === "j2") {
             return
         }
+        posicoes[e.target.value] = element.value
         if(tentativas === 9){
             refresh()
         }
         if(vez == 1) {
             element.classList.add("j1")
             element.value = "j1"
-            reservado1 += e.target.classList[0]
+           
             vez = 2
-            console.log(reservado1)
         } else {
             element.classList.add("j2")
             element.value = "j2"
-            reservado2 += e.target.classList[0]
             vez = 1
-            console.log(reservado2)
         }
-        if(reservado1 == 210){
-            alert("o primeiro venceu!")
-            refresh()
-        } else if (reservado2 == 210) {
-            alert("o segundo venceu!")
-            refresh()
+        
+
+        //HORIZONTAL
+
+        if(posicoes[0].value == posicoes[1].value && posicoes[0].value == posicoes[2].value && posicoes[0].value == element.value) {
+            alert(`${element.value} venceu!`)
+        }else if(posicoes[3].value == posicoes[4].value && posicoes[3].value == posicoes[5].value && posicoes[3].value == element.value) {
+            alert(`${element.value} venceu!`)
+        }else if(posicoes[6].value == posicoes[7].value && posicoes[6].value == posicoes[8].value && posicoes[6].value == element.value) {
+            alert(`${element.value} venceu!`)
         }
+
+        //VERTICAL
+
+        else if(posicoes[0].value == posicoes[3].value && posicoes[0].value == posicoes[6].value && posicoes[0].value == element.value) {
+            alert(`${element.value} venceu!`)
+        } else if(posicoes[1].value == posicoes[4].value && posicoes[1].value == posicoes[7].value && posicoes[1].value == element.value) {
+            alert(`${element.value} venceu!`)
+        } else if(posicoes[2].value == posicoes[5].value && posicoes[2].value == posicoes[8].value && posicoes[2].value == element.value) {
+            alert(`${element.value} venceu!`)
+        }
+        
+        //DIAGONAIS
+
+        else if(posicoes[0].value == posicoes[4].value && posicoes[4].value == posicoes[8].value && posicoes[0].value == element.value) {
+            alert(`${element.value} venceu!`)
+        } else if(posicoes[2].value == posicoes[4].value && posicoes[4].value == posicoes[6].value && posicoes[2].value == element.value) {
+            alert(`${element.value} venceu!`)
+        }
+
         tentativas ++
     })
 })
